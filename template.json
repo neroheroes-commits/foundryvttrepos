@@ -1,0 +1,163 @@
+{
+    "Actor": {
+        "types": [
+            "character"
+        ],
+        "templates": {
+            "standard": {
+                "race": "",
+                "experience": {
+                    "current": 0,
+                    "total": 0,
+                    "history": []
+                }                
+            },
+            "characteristics": {
+                "characteristics": {
+                    "weapon_skill": {
+                        "base": 0,
+                        "value": 0,
+                        "half": 0,
+                        "mods": [],
+                        "name": "Weapon Skill",
+                        "short_name": "WS"
+                    },
+                    "ballistic_skill": {
+                        "base": 0,
+                        "value": 0,
+                        "half": 0,
+                        "mods": [],
+                        "name": "Ballistic Skill",
+                        "short_name": "BS"
+                    },
+                    "strength": {
+                        "base": 0,
+                        "value": 0,
+                        "half": 0,
+                        "mods": [],
+                        "name": "Strength",
+                        "short_name": "S"
+                    },
+                    "toughness": {
+                        "base": 0,
+                        "value": 0,
+                        "half": 0,
+                        "mods": [],
+                        "name": "Toughness",
+                        "short_name": "T"
+                    },
+                    "agility": {
+                        "base": 0,
+                        "value": 0,
+                        "half": 0,
+                        "mods": [],
+                        "name": "Agility",
+                        "short_name": "Ag"
+                    },
+                    "intelligence": {
+                        "base": 0,
+                        "value": 0,
+                        "half": 0,
+                        "mods": [],
+                        "name": "Intelligence",
+                        "short_name": "Int"
+                    },
+                    "perception": {
+                        "base": 0,
+                        "value": 0,
+                        "half": 0,
+                        "mods": [],
+                        "name": "Perception",
+                        "short_name": "Per"
+                    },
+                    "willpower": {
+                        "base": 0,
+                        "value": 0,
+                        "half": 0,
+                        "mods": [],
+                        "name": "Willpower",
+                        "short_name": "WP"
+                    },
+                    "fellowship": {
+                        "base": 0,
+                        "value": 0,
+                        "half": 0,
+                        "mods": [],
+                        "name": "Fellowship",
+                        "short_name": "Fel"
+                    }
+                }
+            }          
+        },
+        "character": {
+            "templates": [
+                "standard",
+                "characteristics"
+            ]
+        }
+    },
+    "Item": {
+        "types": [            
+            "skill",
+            "talent",
+            "trait"
+        ],
+        "templates": {
+            "standard": {
+                "information": {
+                    "display_name": "",
+                    "description": "",
+                    "source": {
+                        "book": "",
+                        "page_number": 0
+                    }
+                }               
+            },
+            "group": {
+                "group": {
+                    "enabled": false,
+                    "group_name": ""
+                }
+            },
+            "skill": {
+                "basic": true,
+                "training": 0,
+                "characteristic": "",
+                "descriptors": {
+                    "crafting": false,
+                    "exploration": false,
+                    "interaction": false,
+                    "investigation": false,
+                    "movement": false,
+                    "operator": false
+                },                
+                "modifiers": {
+                    "traits": [],
+                    "talents": []
+                }
+            },
+            "talent": {
+                "prerequisites": ""
+            }
+        },       
+        "skill": {
+            "templates": [
+                "standard",
+                "skill",
+                "group"
+            ]
+        },
+        "talent": {
+            "templates": [
+                "standard",
+                "talent",
+                "group"
+            ]
+        },
+        "trait": {
+            "templates": [
+                "standard"
+            ]
+        }
+    }
+}

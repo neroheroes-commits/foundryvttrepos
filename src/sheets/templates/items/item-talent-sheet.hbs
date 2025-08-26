@@ -1,0 +1,68 @@
+<form class='{{cssClass}} itemsheet talent' autocomplete='off'>
+	{{log item}}
+	<header class='sheet-header'>
+
+		<div class='header-fields'>
+			<h1 class='charname'>
+				<input style="border: 0px; margin-left: 0.5%; {{#if system.group.enabled}} width: 60%; {{else}} width: 99% {{/if}}" name="name" type="text" value="{{item.name}}" placeholder="Talent Name" />
+				{{#if system.group.enabled}}
+				(
+				<input style="border: 0px; width: 35%;" name="system.group.group_name" type="text" value="{{system.group.group_name}}" placeholder="Group Name" />
+				)
+				{{/if}}
+			</h1>
+			
+			<div class="grid grid-2col" style="margin-top: -0.05em">
+				{{! Toggles for setting Skill Group state. }}
+				<div class='grid-span-2 resource align-right'>
+					<font style="margin-right: 5px;" size=3><b>Talent Group:</b></font>
+					<span class="toggle-switch {{#if system.group.enabled}} switched-on {{/if}}" data-property="group">{{#if system.group.enabled}}Enabled{{else}}Disabled{{/if}}</span>
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	<div class="grid grid-2col">
+		{{! Input element for recording prerequisites list. }}
+		<div class="grid-span-2 align-center">
+			<div style="margin-bottom: -0.75em; font-size: 12pt; font-weight: bold;">Prerequisites:</div>
+			<br>
+			<input style="width: 85%;" type="text" name="system.prerequisites" value="{{system.prerequisites}}" placeholder="Prerequisites"/>
+		</div>
+	</div>
+
+	<div class="grid grid-2col">
+		{{! Input elements for recording source books and page numbers. }}
+		<div class="grid-span-2 align-center">
+			<div style="margin-bottom: -0.75em; font-size: 12pt; font-weight: bold;">Source:</div>
+			<br>
+			<input style="width: 40%;" type="text" name="system.information.source.book" value="{{system.information.source.book}}" placeholder="Source Book"/>
+			, p. 
+			<input style="width: 7%;" type="text" name="system.information.source.page_number" value="{{system.information.source.page_number}}" data-dtype="Number" placeholder="0"/>
+		</div>
+	</div>
+
+	{{! Sheet Tab Navigation }}
+	<nav class='sheet-tabs tabs' data-group='primary'>
+		<a class='item' data-tab='description'>Description</a>
+	</nav>
+
+	{{! Sheet Body }}
+	<section class='sheet-body'>
+
+		{{! Description Tab }}
+		<div class='tab description' data-group='primary' data-tab='description'>
+			<div class="description">
+				{{editor
+					system.information.description
+					target='system.information.description'
+					engine='prosemirror'
+					button=true
+					editable=editable
+				}}
+			</div>
+		</div>
+
+	</section>
+</form>

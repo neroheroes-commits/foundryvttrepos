@@ -1,0 +1,16 @@
+{
+    "ROGUETRADER": {
+        
+    },
+  
+    "TYPES": {
+        "Actor": {
+            "character": "Character"
+        },
+        "Item": {
+            "skill": "Skill",
+            "talent": "Talent",
+            "trait": "Trait"
+        }
+    }
+}

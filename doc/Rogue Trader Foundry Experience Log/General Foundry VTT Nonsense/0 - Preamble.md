@@ -1,0 +1,11 @@
+This is where I will make notes about the things I've discovered randomly that waste a lot of my time. Despite getting the Shadowrun 3 system running in an alpha-ish state so it can actually play the majority of the game, I still run into silliness that I find it hard to contend with.
+
+Foundry VTT has auto-generated API documentation and those are basically never useful because they're rarely complete. The instructions Foundry puts on their site are good for basics, but once you actually get into the nitty-gritty of the software, everything appears to fall into these categories:
+
+1. A moderate level of understanding when it comes to CSS/webdev, which I definitely do not have. There may be some things which are industry standard, and thus the professionals know they exist and how they should be used, which are mystifying to me and seem poorly considered from my own experience.
+2. Things like data structures and how they interact (the overall picture of the software's logical flow) are either hidden in the code itself (which is a single, massive source file) and/or need to be sussed out in detail by using the Console to trace objects and site elements.
+3. Community-driven instructions which have, presumably, required a lot of (1) and (2) above by a collection of people who then act as institutional knowledge that other developers have no choice but to draw from to be successful.
+
+Number 3 is great if you want to try to ask people for help and explain a problem, which is unreliable most of the time. If those people ever leave and take the knowledge with them, this platform could very well be screwed, as each Foundry version update seems to modify enough of the core systems to require a new set of knowledge be obtained, but the community-written documentation lags woefully behind. 
+
+Some references to community wikis (and similar sources) are often multiple versions of out of date and cause warnings/errors that I don't understand the severity of. It makes working with this whole system very awkward, especially for new people.

@@ -1,0 +1,113 @@
+<form class='{{cssClass}} itemsheet skill' autocomplete='off'>
+  {{log item}}
+  <header class='sheet-header'>
+    <img
+      class='profile-img'
+      src='{{item.img}}'
+      data-edit='img'
+      title='{{item.name}}'
+    />
+
+    <div class='header-fields'>
+      <h1 class='charname'>
+        <input style="border: 0px; {{#if system.group.enabled}} width: 50%; {{else}} width: 99% {{/if}}" name="name" type="text" value="{{item.name}}" placeholder="Skill Name" />
+        {{#if system.group.enabled}}
+        (
+        <input style="border: 0px; width: 45%;" name="system.group.group_name" type="text" value="{{system.group.group_name}}" placeholder="Group Name" />
+        )
+        {{/if}}
+      </h1>
+      
+      <div class="grid grid-2col" style="margin-top: -0.05em">
+         {{! Toggles for setting Basic or Advanced state. }}
+        <div class="grid-span-1 resource align-left">
+          <span class="toggle-switch {{#if system.basic}} switched-on {{/if}}" data-property="basic">Basic Skill</span>
+          <span class="toggle-switch {{#unless system.basic}} switched-on {{/unless}}" data-property="advanced">Advanced Skill</span>
+        </div>
+        
+        {{! Toggles for setting Skill Group state. }}
+        <div class='grid-span-1 resource align-right'>
+          <font style="margin-left: 5em; margin-right: 5px;" size=3><b>Skill Group:</b></font>
+          <span class="toggle-switch {{#if system.group.enabled}} switched-on {{/if}}" data-property="group">{{#if system.group.enabled}}Enabled{{else}}Disabled{{/if}}</span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+
+  <div class="grid grid-2col">
+    {{! Toggles for setting Training level. }}
+    <div class="grid-span-2 align-center">
+      <div style="margin-bottom: -0.75em; font-size: 12pt; font-weight: bold;">Descriptors:</div>
+      <br>
+      {{#each system.descriptors as |enabled descriptor|}}
+        <span class="toggle-switch {{#if enabled}} switched-on {{/if}}" data-property={{descriptor}}>{{toTitlecase descriptor "_" " "}}</span>  
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="grid grid-2col">
+    {{! Toggles for setting governing characteristic. }}
+    <div class="grid-span-2 align-center">      
+      <div style="margin-bottom: -0.75em; font-size: 12pt; font-weight: bold;">Governing Characteristic:</div>
+      <br>
+      <span class="toggle-switch char-toggle {{#ifequal system.characteristic "weapon_skill"}} switched-on {{/ifequal}}" data-property="weapon_skill">WS</span>
+      <span class="toggle-switch char-toggle {{#ifequal system.characteristic "ballistic_skill"}} switched-on {{/ifequal}}" data-property="ballistic_skill">BS</span>
+      <span class="toggle-switch char-toggle {{#ifequal system.characteristic "strength"}} switched-on {{/ifequal}}" data-property="strength">S</span>
+      <span class="toggle-switch char-toggle {{#ifequal system.characteristic "toughness"}} switched-on {{/ifequal}}" data-property="toughness">T</span>
+      <span class="toggle-switch char-toggle {{#ifequal system.characteristic "agility"}} switched-on {{/ifequal}}" data-property="agility">Ag</span>
+      <span class="toggle-switch char-toggle {{#ifequal system.characteristic "intelligence"}} switched-on {{/ifequal}}" data-property="intelligence">Int</span>
+      <span class="toggle-switch char-toggle {{#ifequal system.characteristic "perception"}} switched-on {{/ifequal}}" data-property="perception">Per</span>
+      <span class="toggle-switch char-toggle {{#ifequal system.characteristic "willpower"}} switched-on {{/ifequal}}" data-property="willpower">WP</span>
+      <span class="toggle-switch char-toggle {{#ifequal system.characteristic "fellowship"}} switched-on {{/ifequal}}" data-property="fellowship">Fel</span>
+    </div>
+  </div>
+
+  <div class="grid grid-2col">
+    {{! Toggles for setting training level. }}
+    <div class="grid-span-2 align-center">
+      <div style="margin-bottom: -0.75em; font-size: 12pt; font-weight: bold;">Training:</div>
+      <br>
+      <span class="toggle-switch {{#ifequal system.training 0}} switched-on {{/ifequal}}" data-property="training_none">Untrained</span>
+      <span class="toggle-switch {{#ifequal system.training 1}} switched-on {{/ifequal}}" data-property="training_trained">Trained</span>
+      <span class="toggle-switch {{#ifequal system.training 2}} switched-on {{/ifequal}}" data-property="training_mastery10">Mastery +10%</span>
+      <span class="toggle-switch {{#ifequal system.training 3}} switched-on {{/ifequal}}" data-property="training_mastery20">Mastery +20%</span>
+    </div>
+  </div>
+  
+  <div class="grid grid-2col">
+    {{! Input elements for recording source books and page numbers. }}
+    <div class="grid-span-2 align-center">
+      <div style="margin-bottom: -0.75em; font-size: 12pt; font-weight: bold;">Source:</div>
+      <br>
+      <input style="width: 40%;" type="text" name="system.information.source.book" value="{{system.information.source.book}}" placeholder="Source Book"/>
+      , p. 
+      <input style="width: 7%;" type="text" name="system.information.source.page_number" value="{{system.information.source.page_number}}" data-dtype="Number" placeholder="0"/>
+    </div>
+  </div>
+
+  {{! Sheet Tab Navigation }}
+  <nav class='sheet-tabs tabs' data-group='primary'>
+    <a class='item' data-tab='description'>Description</a>
+  </nav>
+
+  {{! Sheet Body }}
+  <section class='sheet-body'>
+
+    {{! Description Tab }}    
+    <div class='tab description' data-group='primary' data-tab='description'>
+
+      <div class="description">
+        {{editor
+          system.information.description
+          target='system.information.description'
+          engine='prosemirror'
+          button=true
+          editable=editable
+        }}
+      </div>         
+    </div>
+
+  </section>
+</form>
